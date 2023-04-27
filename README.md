@@ -3,6 +3,6 @@
 
 > ⏱ It's a repository of Cron job for task management.
 
-O serviço CRON é responsável por executar tarefas agendadas de forma automática e recorrente de acordo com a peridiocidade que você definir. E uma dessas tarefas que o serviço Cron irá executar são os serviços **cron jobs**. E para gerenciar esses cron-jobs, iremos precisar de uma tabela chamada **cron-tab**. É necessário utilizar o prompt de comando ou Terminal para utilizar o CRON (sistema operacional Linux ou macOS).
+O serviço CRON é responsável por executar tarefas agendadas de forma automática e recorrente de acordo com a peridiocidade que você definir. E uma dessas tarefas que o serviço Cron irá executar são os serviços **cron jobs**. E para gerenciar esses cron-jobs, iremos precisar de uma tabela chamada **cron-tab**. 
 
-O Cron é um serviço iniciado no plano de fundo, ele é instalado no processo de BOOT da máquina e fica verificando a todo momento se tem tarefas agendadas.
+É necessário utilizar o prompt de comando ou Terminal para utilizar o CRON (sistema operacional Linux ou macOS). Portanto, o Cron é um serviço iniciado no plano de fundo, ele é instalado no processo de BOOT da máquina e fica verificando a todo momento se tem tarefas agendadas.
