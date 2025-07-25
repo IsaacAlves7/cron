@@ -1,7 +1,7 @@
 # ⏱ CRON
 <img src="https://user-images.githubusercontent.com/61624336/234996362-0217ee9a-b372-4567-b770-28a6a9102c1f.png" height="77" align="right">
 
-O serviço **CRON** é responsável por executar tarefas agendadas de forma automática e recorrente de acordo com a peridiocidade que você definir. E uma dessas tarefas que o serviço Cron irá executar são os serviços **cron jobs**. E para gerenciar esses cron-jobs, iremos precisar de uma tabela chamada **cron-tab**. 
+O serviço **CRON** é responsável por executar tarefas agendadas de forma automática e recorrente de acordo com a peridiocidade que você definir. E uma dessas tarefas que o serviço Cron irá executar são os serviços **cron jobs**. E para gerenciar esses cron-jobs, iremos precisar de uma tabela chamada **cron-tab**. O cron (ou mais precisamente, o daemon cron) já vem nativo na maioria dos sistemas operacionais Unix-like.
 
 É necessário utilizar o prompt de comando ou Terminal para utilizar o CRON (sistema operacional Linux ou macOS). Portanto, o Cron é um serviço iniciado no plano de fundo, ele é instalado no processo de BOOT da máquina e fica verificando a todo momento se tem tarefas agendadas para ele executar.
 
@@ -9,7 +9,7 @@ Cron é um agendador de tarefas utilizado principalmente em sistemas Unix e Linu
 
 Ver o status do cron:
 
-```sh
+```bash
 sudo service cron status
 ```
 
@@ -21,7 +21,11 @@ sudo service cron start
 
 No Windows, o equivalente a um cron job do Linux é o Agendador de Tarefas (Task Scheduler). Para criar uma tarefa agendada via linha de comando (CMD), você pode usar o utilitário schtasks.exe, que já vem instalado no sistema.
 
-Exemplo: Agendar um script para rodar todos os dias às 14h
+Exemplo: Agendar um script para rodar todos os dias às 14h. Suponha que você tenha um script chamado `meuscript.bat` localizado em `C:\Scripts\meuscript.bat`. Abra o CMD como Administrador e execute:
+
+```cmd
+schtasks /create /tn "RodarMeuScript" /tr "C:\Scripts\meuscript.bat" /sc daily /st 14:00
+```
 
 No contexto do PHP e, especialmente, do Laravel, o `cron` é fundamental para automatizar tarefas recorrentes dentro da aplicação. Em PHP puro, é comum utilizar scripts que precisam rodar periodicamente para limpar cache, gerar relatórios, enviar notificações por e-mail ou qualquer outro tipo de processamento assíncrono. Esses scripts podem ser configurados no sistema operacional para serem executados via cron, que chamaria o interpretador do PHP passando o caminho do script como argumento. Já no Laravel, há uma estrutura mais refinada para lidar com agendamentos, chamada de task scheduling, que abstrai a complexidade do `crontab` e permite definir tarefas programadas diretamente dentro do código da aplicação, de forma mais expressiva e controlada, através do método `schedule` do `Kernel.php`.
 
