@@ -1,11 +1,11 @@
 # ⏱ CRON
 <img src="https://user-images.githubusercontent.com/61624336/234996362-0217ee9a-b372-4567-b770-28a6a9102c1f.png" height="77" align="right">
 
-O serviço **CRON** é responsável por executar tarefas agendadas de forma automática e recorrente de acordo com a peridiocidade que você definir. E uma dessas tarefas que o serviço Cron irá executar são os serviços **cron jobs**. E para gerenciar esses cron-jobs, iremos precisar de uma tabela chamada **cron-tab**. O cron (ou mais precisamente, o daemon cron) já vem nativo na maioria dos sistemas operacionais Unix-like.
+**Cron** é um agendador de tarefas utilizado principalmente em sistemas Unix e Linux, cuja função é executar comandos ou scripts de forma automática em horários e intervalos específicos definidos pelo usuário. Ele funciona a partir de um daemon chamado `cron`, que fica rodando em segundo plano, monitorando os arquivos de agendamento chamados `crontabs`, e executando as tarefas nos momentos indicados. A configuração de uma tarefa cron é feita através de uma sintaxe específica que define o minuto, a hora, o dia do mês, o mês, o dia da semana e o comando a ser executado, tudo em uma linha só, o que permite um controle bastante preciso sobre quando as tarefas devem rodar.
+
+Resumindo, o serviço **CRON** é responsável por executar tarefas agendadas de forma automática e recorrente de acordo com a peridiocidade que você definir. E uma dessas tarefas que o serviço Cron irá executar são os serviços **cron jobs**. E para gerenciar esses cron-jobs, iremos precisar de uma tabela chamada **cron-tab**. O cron (ou mais precisamente, o daemon cron) já vem nativo na maioria dos sistemas operacionais Unix-like.
 
 É necessário utilizar o prompt de comando ou Terminal para utilizar o CRON (sistema operacional Linux ou macOS). Portanto, o Cron é um serviço iniciado no plano de fundo, ele é instalado no processo de BOOT da máquina e fica verificando a todo momento se tem tarefas agendadas para ele executar.
-
-Cron é um agendador de tarefas utilizado principalmente em sistemas Unix e Linux, cuja função é executar comandos ou scripts de forma automática em horários e intervalos específicos definidos pelo usuário. Ele funciona a partir de um daemon chamado `cron`, que fica rodando em segundo plano, monitorando os arquivos de agendamento chamados `crontabs`, e executando as tarefas nos momentos indicados. A configuração de uma tarefa cron é feita através de uma sintaxe específica que define o minuto, a hora, o dia do mês, o mês, o dia da semana e o comando a ser executado, tudo em uma linha só, o que permite um controle bastante preciso sobre quando as tarefas devem rodar.
 
 Ver o status do cron:
 
