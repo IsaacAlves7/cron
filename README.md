@@ -7,6 +7,22 @@ O serviço **CRON** é responsável por executar tarefas agendadas de forma auto
 
 Cron é um agendador de tarefas utilizado principalmente em sistemas Unix e Linux, cuja função é executar comandos ou scripts de forma automática em horários e intervalos específicos definidos pelo usuário. Ele funciona a partir de um daemon chamado `cron`, que fica rodando em segundo plano, monitorando os arquivos de agendamento chamados `crontabs`, e executando as tarefas nos momentos indicados. A configuração de uma tarefa cron é feita através de uma sintaxe específica que define o minuto, a hora, o dia do mês, o mês, o dia da semana e o comando a ser executado, tudo em uma linha só, o que permite um controle bastante preciso sobre quando as tarefas devem rodar.
 
+Ver o status do cron:
+
+```sh
+sudo service cron status
+```
+
+Iniciar o processo cron:
+
+```sh
+sudo service cron start
+```
+
+No Windows, o equivalente a um cron job do Linux é o Agendador de Tarefas (Task Scheduler). Para criar uma tarefa agendada via linha de comando (CMD), você pode usar o utilitário schtasks.exe, que já vem instalado no sistema.
+
+Exemplo: Agendar um script para rodar todos os dias às 14h
+
 No contexto do PHP e, especialmente, do Laravel, o `cron` é fundamental para automatizar tarefas recorrentes dentro da aplicação. Em PHP puro, é comum utilizar scripts que precisam rodar periodicamente para limpar cache, gerar relatórios, enviar notificações por e-mail ou qualquer outro tipo de processamento assíncrono. Esses scripts podem ser configurados no sistema operacional para serem executados via cron, que chamaria o interpretador do PHP passando o caminho do script como argumento. Já no Laravel, há uma estrutura mais refinada para lidar com agendamentos, chamada de task scheduling, que abstrai a complexidade do `crontab` e permite definir tarefas programadas diretamente dentro do código da aplicação, de forma mais expressiva e controlada, através do método `schedule` do `Kernel.php`.
 
 Apesar dessa abstração que o Laravel oferece, o uso do cron em si ainda é necessário, porque é ele quem dispara a execução do agendador do Laravel. Ou seja, ao invés de criar uma entrada para cada tarefa dentro do `crontab`, você configura uma única linha que roda a cada minuto, chamando o comando `php artisan schedule:run`. Esse comando verifica todas as tarefas programadas no Laravel e executa somente as que devem rodar naquele momento, com base nas condições especificadas pelo desenvolvedor. Essa abordagem centraliza e organiza melhor a automação, tornando mais fácil manter e evoluir o sistema, especialmente em ambientes complexos com múltiplas tarefas periódicas.
@@ -26,17 +42,3 @@ Por exemplo, se você tem um script Python chamado `processar_dados.py`, você p
 Essa linha executaria o script a cada 30 minutos. Para garantir que o script funcione corretamente, é importante configurar corretamente os caminhos absolutos e garantir que as permissões e ambientes estejam acessíveis (por exemplo, variáveis de ambiente, diretórios virtuais, dependências etc.).
 
 Em ambientes mais robustos, como quando se usa Python com frameworks como Django ou Flask, também é comum centralizar a lógica de agendamento e acionar os scripts com cron, da mesma forma que o Laravel faz com `schedule:run`. O Django, por exemplo, não tem um sistema de agendamento interno como o Laravel, então você geralmente define suas tarefas em arquivos separados (ou usa bibliotecas como `django-celery` com agendadores próprios), e o cron serve como mecanismo de disparo externo.
-
-```sh
-sudo service cron status
-```
-
-Iniciar o processo cron:
-
-```sh
-sudo service cron start
-```
-
-No Windows, o equivalente a um cron job do Linux é o Agendador de Tarefas (Task Scheduler). Para criar uma tarefa agendada via linha de comando (CMD), você pode usar o utilitário schtasks.exe, que já vem instalado no sistema.
-
-Exemplo:
